@@ -12,7 +12,7 @@
       
 ![image](https://github.com/3rdPartyLibraryAnalysis/Retrofit/blob/master/two.png)
 
-App应用程序通过 Retrofit 请求网络，实际上是使用 Retrofit 接口层封装请求参数、Header、Url 等信息，之后由 OkHttp 完成后续的请求操作
+App 应用程序通过 Retrofit 请求网络，实际上是使用 Retrofit 接口层封装请求参数、Header、Url 等信息，之后由 OkHttp 完成后续的请求操作
 
 在服务端返回数据之后，OkHttp 将原始的结果交给 Retrofit，Retrofit根据用户的需求对结果进行解析
 
@@ -21,7 +21,7 @@ App应用程序通过 Retrofit 请求网络，实际上是使用 Retrofit 接口
  
    使用 Retrofit 的步骤共有7个：
 
-步骤1：添加Retrofit库的依赖 
+步骤1：添加 Retrofit 库的依赖 
 
 步骤2：创建 接收服务器返回数据 的类 
 
@@ -33,11 +33,11 @@ App应用程序通过 Retrofit 请求网络，实际上是使用 Retrofit 接口
 
 步骤6：发送网络请求（异步 / 同步）
   
-  ### 步骤1：添加Retrofit库的依赖
+  ### 步骤 1：添加 Retrofit 库的依赖
   
-  1. 在 Gradle加入Retrofit库的依赖
+  1. 在 Gradle 加入 Retrofit 库的依赖
 
-   由于Retrofit是基于OkHttp，所以还需要添加OkHttp库依赖
+   由于 Retrofit 是基于 OkHttp ，所以还需要添加 OkHttp 库依赖
    
 ```
 
@@ -58,7 +58,7 @@ dependencies {
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-  ### 步骤2：创建 接收服务器返回数据 的类
+  ### 步骤 2：创建 接收服务器返回数据 的类
   
   ```
 Reception.java
@@ -70,14 +70,14 @@ public class Reception {
         }
         
    ```
-   ### 步骤3：创建 用于描述网络请求 的接口
-   Retrofit将 Http请求 抽象成 Java接口：采用 注解 描述网络请求参数 和配置网络请求参数 
+   ### 步骤 3：创建 用于描述网络请求 的接口
+   Retrofit 将 Http 请求 抽象成 Java 接口：采用 注解 描述网络请求参数 和配置网络请求参数 
    
 用 动态代理 动态 将该接口的注解“翻译”成一个 Http 请求，最后再执行 Http 请求
 
 注：接口中的每个方法的参数都需要使用注解标注，否则会报错
 
-   ### 步骤4：创建 Retrofit 实例
+   ### 步骤 4：创建 Retrofit 实例
  
  ```
   Retrofit retrofit = new Retrofit.Builder()
@@ -86,7 +86,7 @@ public class Reception {
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create()) // 支持RxJava平台
                 .build();
 ```
-   ### 步骤5：创建 网络请求接口实例
+   ### 步骤 5：创建网络请求接口实例
    
     
         GetRequest_Interface request = retrofit.create(GetRequest_Interface.class);
@@ -95,7 +95,7 @@ public class Reception {
         Call<Reception> call = request.getCall();
    
     
-   ### 步骤6：发送网络请求（异步 / 同步）    
+   ### 步骤 6：发送网络请求（异步 / 同步）    
    
    //发送网络请求(异步)
         call.enqueue(new Callback<Translation>() {
@@ -116,9 +116,9 @@ public class Reception {
 // 发送网络请求（同步）
 Response<Reception> response = call.execute();
    
-   ### 步骤7：处理返回数据  
+   ### 步骤 7：处理返回数据  
    
-   通过response类的 body（）对返回的数据进行处理
+   通过 response 类的 body（）对返回的数据进行处理
 
       //发送网络请求(异步)
         call.enqueue(new Callback<Translation>() {
