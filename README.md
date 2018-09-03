@@ -1,4 +1,4 @@
-# Retrofit : https://www.jianshu.com/p/308f3c54abdd
+# Retrofit 
 
 ## 一、简介
 
